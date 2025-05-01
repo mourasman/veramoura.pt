@@ -1,0 +1,116 @@
+:root {
+  --verde-tropa: #485d2a;
+  --verde-relva: #758f3a;
+  --verde-pastel: #a8c360;
+  --verde-lima: #f8fae3;
+  --branco: #ffffff;
+  --fonte-principal: 'Montserrat', sans-serif;
+  --logo-height-desktop: 100px;
+  --logo-height-mobile: 70px; }
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: var(--fonte-principal);
+  background-color: var(--verde-lima);
+  color: var(--verde-tropa);
+  line-height: 1.6; }
+
+header {
+  background-color: var(--branco);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); }
+  header .logo {
+    max-height: var(--logo-height-desktop);
+    width: auto;
+    transition: transform 0.3s ease; }
+  header .logo:hover {
+    transform: scale(1.05); }
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem; }
+    header nav ul li a {
+      text-decoration: none;
+      color: var(--verde-tropa);
+      font-weight: 600;
+      position: relative; }
+    header nav ul li a::after {
+      content: '';
+      display: block;
+      width: 0;
+      height: 2px;
+      background: var(--verde-pastel);
+      transition: width 0.3s;
+      position: absolute;
+      bottom: -5px;
+      left: 0; }
+    header nav ul li a:hover::after {
+      width: 100%; }
+
+.hero {
+  background-color: var(--verde-relva);
+  color: var(--branco);
+  text-align: center;
+  padding: 4rem 2rem; }
+  .hero h1 {
+    font-size: 2rem;
+    animation: fadeInDown 1s ease-out; }
+  .hero p {
+    margin-top: 1rem;
+    animation: fadeIn 2s ease-out; }
+  .hero .btn {
+    background-color: var(--verde-pastel);
+    color: var(--verde-tropa);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    display: inline-block;
+    margin-top: 2rem;
+    transition: background-color 0.3s; }
+  .hero .btn:hover {
+    background-color: var(--verde-lima); }
+
+section {
+  padding: 3rem 2rem; }
+
+footer {
+  background-color: var(--verde-tropa);
+  color: var(--branco);
+  text-align: center;
+  padding: 1rem; }
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column; }
+    header .logo {
+      margin-bottom: 1rem;
+      max-height: var(--logo-height-mobile); }
+    header nav ul {
+      flex-direction: column;
+      align-items: center; }
+
+  .hero {
+    padding: 3rem 1rem; }
+    .hero h1 {
+      font-size: 1.5rem; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); }
+  to {
+    opacity: 1;
+    transform: translateY(0); } }
+
+/*# sourceMappingURL=style.css.map */
