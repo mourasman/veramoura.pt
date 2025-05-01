@@ -280,10 +280,9 @@ section:not(.hero) {
 .marcacao {
     background-color: var(--verde-lima);
     padding: 4rem 2rem;
-    text-align: center;
 
     .title-container {
-        text-align: right;
+        text-align: center;
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
@@ -294,23 +293,24 @@ section:not(.hero) {
         margin-bottom: 2rem;
         display: inline-block;
         position: relative;
-        text-align: right;
+        text-align: center;
         color: var(--verde-tropa);
-        left: auto;
-        transform: none;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     h2::after {
         content: '';
         display: block;
-        width: 80px;
+        width: 50px;
         height: 3px;
+        bottom: -10px;
         background-color: var(--verde-pastel);
-        margin: 12px 0 25px auto; /* Right alignment of the underline */
+        margin: 0;
         transition: width 0.3s ease;
-        position: static;
-        left: auto;
-        transform: none;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
     }
 
     &:hover h2::after {
@@ -487,11 +487,6 @@ footer {
     .marcacao {
         .title-container {
             padding: 0 1rem;
-            text-align: center;
-        }
-
-        h2 {
-            text-align: center;
         }
 
         h2::after {
