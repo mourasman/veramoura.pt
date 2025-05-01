@@ -105,6 +105,7 @@ header {
     padding: 5rem 2rem;
     position: relative;
     overflow: hidden;
+    opacity: 1; /* Make sure hero is visible by default */
 
     &::before {
         content: '';
@@ -170,7 +171,7 @@ header {
     }
 }
 
-section {
+section:not(.hero) {
     padding: 4rem 2rem;
     opacity: 0;
     transform: translateY(20px);
@@ -278,65 +279,124 @@ section {
 
 .marcacao {
     background-color: var(--verde-lima);
+    padding: 4rem 2rem;
+    text-align: center;
 
-    .contact-form {
-        max-width: 600px;
+    .title-container {
+        text-align: right;
+        max-width: 1200px;
         margin: 0 auto;
+        padding: 0 2rem;
+    }
 
-        .form-group {
-            margin-bottom: 1.5rem;
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        display: inline-block;
+        position: relative;
+        text-align: right;
+        color: var(--verde-tropa);
+        left: auto;
+        transform: none;
+    }
 
-            label {
-                display: block;
-                margin-bottom: 0.5rem;
-                font-weight: 500;
-            }
+    h2::after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background-color: var(--verde-pastel);
+        margin: 12px 0 25px auto; /* Right alignment of the underline */
+        transition: width 0.3s ease;
+        position: static;
+        left: auto;
+        transform: none;
+    }
 
-            input,
-            select,
-            textarea {
-                width: 100%;
-                padding: 0.8rem;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-                font-family: var(--fonte-principal);
-                font-size: 1rem;
-                transition: border-color 0.3s, box-shadow 0.3s;
+    &:hover h2::after {
+        width: 120px;
+    }
 
-                &:focus {
-                    outline: none;
-                    border-color: var(--verde-relva);
-                    box-shadow: 0 0 0 3px rgba(117, 143, 58, 0.2);
-                }
-            }
+    .section-content {
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
-            textarea {
-                resize: vertical;
-            }
-        }
+    .social-intro {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: var(--verde-tropa);
+    }
 
-        .btn {
-            background-color: var(--verde-relva);
-            color: var(--branco);
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            display: block;
-            width: 100%;
+    .social-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 2rem auto;
+    }
 
-            &:hover {
-                background-color: var(--verde-tropa);
-                transform: translateY(-3px);
-            }
+    .social-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        min-width: 180px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
 
-            &:active {
-                transform: translateY(0);
-            }
-        }
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.8rem;
+    }
+
+    /* Facebook styling */
+    .facebook {
+        background-color: #fff;
+        color: #4267B2;
+        border: 2px solid #4267B2;
+    }
+
+    .facebook:hover {
+        background-color: #4267B2;
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(66, 103, 178, 0.2);
+    }
+
+    /* Instagram styling */
+    .instagram {
+        background-color: #fff;
+        color: #E1306C;
+        border: 2px solid #E1306C;
+    }
+
+    .instagram:hover {
+        background-color: #E1306C;
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(225, 48, 108, 0.2);
+    }
+
+    /* WhatsApp styling */
+    .whatsapp {
+        background-color: #fff;
+        color: #25D366;
+        border: 2px solid #25D366;
+    }
+
+    .whatsapp:hover {
+        background-color: #25D366;
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2);
     }
 }
 
@@ -412,6 +472,31 @@ footer {
 
     .servicos ul {
         grid-template-columns: 1fr;
+    }
+
+    .social-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .social-button {
+        width: 100%;
+        max-width: 250px;
+    }
+
+    .marcacao {
+        .title-container {
+            padding: 0 1rem;
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        h2::after {
+            margin: 12px auto 25px auto; /* Center alignment on mobile */
+        }
     }
 }
 

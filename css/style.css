@@ -80,7 +80,9 @@ header {
   text-align: center;
   padding: 5rem 2rem;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  opacity: 1;
+  /* Make sure hero is visible by default */ }
   .hero::before {
     content: '';
     position: absolute;
@@ -129,15 +131,15 @@ header {
   .hero .btn:hover::before {
     left: 100%; }
 
-section {
+section:not(.hero) {
   padding: 4rem 2rem;
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease, transform 0.6s ease; }
-  section.visible {
+  section:not(.hero).visible {
     opacity: 1;
     transform: translateY(0); }
-  section h2 {
+  section:not(.hero) h2 {
     font-size: 2rem;
     margin-bottom: 2rem;
     text-align: center;
@@ -145,7 +147,7 @@ section {
     display: inline-block;
     left: 50%;
     transform: translateX(-50%); }
-  section h2::after {
+  section:not(.hero) h2::after {
     content: '';
     position: absolute;
     width: 50px;
@@ -155,9 +157,9 @@ section {
     left: 50%;
     transform: translateX(-50%);
     transition: width 0.3s ease; }
-  section:hover h2::after {
+  section:not(.hero):hover h2::after {
     width: 100px; }
-  section .section-content {
+  section:not(.hero) .section-content {
     max-width: 800px;
     margin: 0 auto;
     text-align: center; }
@@ -208,51 +210,97 @@ section {
       text-decoration: underline; }
 
 .marcacao {
-  background-color: var(--verde-lima); }
-  .marcacao .contact-form {
-    max-width: 600px;
+  background-color: var(--verde-lima);
+  padding: 4rem 2rem;
+  text-align: center;
+  /* Facebook styling */
+  /* Instagram styling */
+  /* WhatsApp styling */ }
+  .marcacao .title-container {
+    text-align: right;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem; }
+  .marcacao h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    display: inline-block;
+    position: relative;
+    text-align: right;
+    color: var(--verde-tropa);
+    left: auto;
+    transform: none; }
+  .marcacao h2::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--verde-pastel);
+    margin: 12px 0 25px auto;
+    /* Right alignment of the underline */
+    transition: width 0.3s ease;
+    position: static;
+    left: auto;
+    transform: none; }
+  .marcacao:hover h2::after {
+    width: 120px; }
+  .marcacao .section-content {
+    max-width: 800px;
     margin: 0 auto; }
-    .marcacao .contact-form .form-group {
-      margin-bottom: 1.5rem; }
-      .marcacao .contact-form .form-group label {
-        display: block;
-        margin-bottom: 0.5rem;
-        font-weight: 500; }
-      .marcacao .contact-form .form-group input,
-      .marcacao .contact-form .form-group select,
-      .marcacao .contact-form .form-group textarea {
-        width: 100%;
-        padding: 0.8rem;
-        border: 1px solid #ddd;
-        border-radius: 4px;
-        font-family: var(--fonte-principal);
-        font-size: 1rem;
-        transition: border-color 0.3s, box-shadow 0.3s; }
-        .marcacao .contact-form .form-group input:focus,
-        .marcacao .contact-form .form-group select:focus,
-        .marcacao .contact-form .form-group textarea:focus {
-          outline: none;
-          border-color: var(--verde-relva);
-          box-shadow: 0 0 0 3px rgba(117, 143, 58, 0.2); }
-      .marcacao .contact-form .form-group textarea {
-        resize: vertical; }
-    .marcacao .contact-form .btn {
-      background-color: var(--verde-relva);
-      color: var(--branco);
-      border: none;
-      padding: 1rem 2rem;
-      border-radius: 4px;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background-color 0.3s, transform 0.3s;
-      display: block;
-      width: 100%; }
-      .marcacao .contact-form .btn:hover {
-        background-color: var(--verde-tropa);
-        transform: translateY(-3px); }
-      .marcacao .contact-form .btn:active {
-        transform: translateY(0); }
+  .marcacao .social-intro {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    color: var(--verde-tropa); }
+  .marcacao .social-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin: 2rem auto; }
+  .marcacao .social-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); }
+  .marcacao .social-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 0.8rem; }
+  .marcacao .facebook {
+    background-color: #fff;
+    color: #4267B2;
+    border: 2px solid #4267B2; }
+  .marcacao .facebook:hover {
+    background-color: #4267B2;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(66, 103, 178, 0.2); }
+  .marcacao .instagram {
+    background-color: #fff;
+    color: #E1306C;
+    border: 2px solid #E1306C; }
+  .marcacao .instagram:hover {
+    background-color: #E1306C;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(225, 48, 108, 0.2); }
+  .marcacao .whatsapp {
+    background-color: #fff;
+    color: #25D366;
+    border: 2px solid #25D366; }
+  .marcacao .whatsapp:hover {
+    background-color: #25D366;
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.2); }
 
 footer {
   background-color: var(--verde-tropa);
@@ -300,7 +348,24 @@ footer {
       font-size: 1.5rem; }
 
   .servicos ul {
-    grid-template-columns: 1fr; } }
+    grid-template-columns: 1fr; }
+
+  .social-container {
+    flex-direction: column;
+    align-items: center; }
+
+  .social-button {
+    width: 100%;
+    max-width: 250px; }
+
+  .marcacao .title-container {
+    padding: 0 1rem;
+    text-align: center; }
+  .marcacao h2 {
+    text-align: center; }
+  .marcacao h2::after {
+    margin: 12px auto 25px auto;
+    /* Center alignment on mobile */ } }
 @keyframes fadeIn {
   from {
     opacity: 0; }
